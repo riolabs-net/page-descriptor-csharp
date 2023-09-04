@@ -1,0 +1,29 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+	<PropertyGroup>
+		<PackageId>Riolabs.PageDescriptor.Swashbuckle</PackageId>
+		<Version>1.0.0</Version>
+		<Authors>Giuseppe Riolo</Authors>
+		<Company>Riolabs</Company>
+		<Title>Riolabs page descriptor for swashbuckle</Title>
+		<Description>
+		</Description>
+		<GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+		<Product>Riolabs page descriptor </Product>
+		<Copyright>2023</Copyright>
+		<PackageLicenseExpression>MIT</PackageLicenseExpression>
+		<PackageRequireLicenseAcceptance>True</PackageRequireLicenseAcceptance>
+	</PropertyGroup>
+
+	<PropertyGroup>
+		<TargetFramework>net6.0</TargetFramework>
+		<RootNamespace>Riolabs.PageDescriptor.Swashbuckle</RootNamespace>
+		<ImplicitUsings>enable</ImplicitUsings>
+		<Nullable>disable</Nullable>
+	</PropertyGroup>
+
+	<ItemGroup>
+		<PackageReference Include="Swashbuckle.AspNetCore.SwaggerGen" Version="6.2.3" />
+	</ItemGroup>
+
+</Project>
