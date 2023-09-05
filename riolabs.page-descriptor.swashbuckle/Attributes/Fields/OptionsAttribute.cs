@@ -4,26 +4,37 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 
 namespace Riolabs.PageDescriptor.Swashbuckle.Attributes.Fields;
 
 public class OptionsAttribute : FormInfoAttribute
 {
-    private ITextValue[] Options { get; }
-    private string KeyName { get; set; } = "id";
-    private string ValueName { get; set; } = "text";
+    private IEnumerable<ITextValue> Options { get; }
+    public string KeyName { get; set; } = "id";
+    public string ValueName { get; set; } = "text";
 
-    public OptionsAttribute(string key, string value, params ITextValue[] options)
+    public OptionsAttribute(params string[] options)
     {
-        Options = options;
-        KeyName = key;
-        ValueName = value;
-    }
-
-    public OptionsAttribute(params ITextValue[] options)
-    {
-        Options = options;
+        string pattern = @"<([^>]+)>\s+(.+)";
+        List<ITextValue> optionsList = new List<ITextValue>();
+        Options = options.Select(o =>
+           {
+               Match match = Regex.Match(o, pattern);
+               if (match.Success)
+               {
+                   return new TextValue
+                   {
+                       Id = match.Groups[1].Value,
+                       Text = match.Groups[2].Value
+                   };
+               }
+               else
+               {
+                   throw new Exception($"Invalid option format: {o}");
+               }
+           });
     }
 
     public override string Key => "options-simple";
@@ -32,11 +43,11 @@ public class OptionsAttribute : FormInfoAttribute
         get
         {
             var list = new OpenApiArray();
-            var  _options = Options?.Select(x => new OpenApiObject
+            var _options = Options?.Select(x => new OpenApiObject
             {
                 { KeyName, new OpenApiString(x.Id) },
                 { ValueName, new OpenApiString(x.Text) }
-            }); 
+            });
             foreach (var option in _options)
             {
                 list.Add(option);
