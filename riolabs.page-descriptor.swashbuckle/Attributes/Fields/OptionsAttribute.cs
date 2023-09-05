@@ -18,7 +18,7 @@ public class OptionsAttribute : FormInfoAttribute
     public OptionsAttribute(params string[] options)
     {
         string pattern = @"<([^>]+)>\s+(.+)";
-        List<ITextValue> optionsList = new List<ITextValue>();
+        List<ITextValue> optionsList = new();
         Options = options.Select(o =>
            {
                Match match = Regex.Match(o, pattern);

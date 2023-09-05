@@ -7,14 +7,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Riolabs.PageDescriptor.Swashbuckle
+namespace Riolabs.PageDescriptor.Swashbuckle;
+
+public static class SwaggerGenOptionsExt
 {
-    public static class SwaggerGenOptionsExt
+    public static void AddFrontendDescriptor(this SwaggerGenOptions options, SwaggerOptions swaggerOptions = default)
     {
-        public static void AddFrontendDescriptor(this SwaggerGenOptions options, SwaggerOptions swaggerOptions = default)
-        {
-            options.SchemaFilter<FormDataOperationFilter>(swaggerOptions ?? new());
-            options.SchemaFilter<FormFieldOperationFilter>(swaggerOptions ?? new());
-        }
+        options.SchemaFilter<FormDataOperationFilter>(swaggerOptions ?? new());
+        options.SchemaFilter<FormFieldOperationFilter>(swaggerOptions ?? new());
     }
 }
