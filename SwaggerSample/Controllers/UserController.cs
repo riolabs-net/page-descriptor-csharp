@@ -17,6 +17,9 @@ public class UserController : ControllerBase
 
     // GET: api/users
     [HttpGet]
+    [ProducesResponseType(typeof(IEnumerable<User>), 200)]
+    [ProducesResponseType(400)]
+    [ProducesResponseType(500)]
     public IActionResult GetAllUsers()
     {
         try
@@ -32,6 +35,10 @@ public class UserController : ControllerBase
 
     // GET: api/users/{id}
     [HttpGet("{id}")]
+    [ProducesResponseType(typeof(User), 200)]
+    [ProducesResponseType(400)]
+    [ProducesResponseType(404)]
+    [ProducesResponseType(500)]
     public IActionResult GetUserById(int id)
     {
         try
@@ -51,6 +58,9 @@ public class UserController : ControllerBase
 
     // POST: api/users
     [HttpPost]
+    [ProducesResponseType(typeof(User), 200)]
+    [ProducesResponseType(400)]
+    [ProducesResponseType(500)]
     public IActionResult CreateUser([FromBody] User user)
     {
         try
@@ -72,6 +82,9 @@ public class UserController : ControllerBase
 
     // PUT: api/users/{id}
     [HttpPut("{id}")]
+    [ProducesResponseType(200)]
+    [ProducesResponseType(400)]
+    [ProducesResponseType(500)]
     public IActionResult UpdateUser(int id, [FromBody] User user)
     {
         try
@@ -99,6 +112,9 @@ public class UserController : ControllerBase
 
     // DELETE: api/users/{id}
     [HttpDelete("{id}")]
+    [ProducesResponseType(200)]
+    [ProducesResponseType(400)]
+    [ProducesResponseType(500)]
     public IActionResult DeleteUser(int id)
     {
         try

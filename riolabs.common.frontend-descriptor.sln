@@ -1,0 +1,55 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.6.33815.320
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SwaggerSample", "SwaggerSample\SwaggerSample.csproj", "{BF066D2A-CCE3-4FC5-B3F6-33DBD62A4729}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "riolabs.page-descriptor.swashbuckle", "riolabs.page-descriptor.swashbuckle\riolabs.page-descriptor.swashbuckle.csproj", "{C8E9882A-9C32-41AB-8894-F4DF1D8D17B5}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Samples", "Samples", "{DEE6A48B-D143-4E6F-B63C-0784BB5E120A}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "riolabs.page-descriptor", "riolabs.page-descriptor\riolabs.page-descriptor.csproj", "{1CC49720-A73B-4866-981E-45E8370F9EE5}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "riolabs.page-descriptor.sample", "riolabs.page-descriptor.sample\riolabs.page-descriptor.sample.csproj", "{A6321DF4-A267-4755-8AEF-C7420DDE4320}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "riolabs.page-descriptor.bs", "riolabs.page-descriptor.bs\riolabs.page-descriptor.bs.csproj", "{64C0AC7F-6DFB-4309-BE7E-6317316EF495}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{BF066D2A-CCE3-4FC5-B3F6-33DBD62A4729}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BF066D2A-CCE3-4FC5-B3F6-33DBD62A4729}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BF066D2A-CCE3-4FC5-B3F6-33DBD62A4729}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BF066D2A-CCE3-4FC5-B3F6-33DBD62A4729}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C8E9882A-9C32-41AB-8894-F4DF1D8D17B5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C8E9882A-9C32-41AB-8894-F4DF1D8D17B5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C8E9882A-9C32-41AB-8894-F4DF1D8D17B5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C8E9882A-9C32-41AB-8894-F4DF1D8D17B5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1CC49720-A73B-4866-981E-45E8370F9EE5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1CC49720-A73B-4866-981E-45E8370F9EE5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1CC49720-A73B-4866-981E-45E8370F9EE5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1CC49720-A73B-4866-981E-45E8370F9EE5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A6321DF4-A267-4755-8AEF-C7420DDE4320}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A6321DF4-A267-4755-8AEF-C7420DDE4320}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A6321DF4-A267-4755-8AEF-C7420DDE4320}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A6321DF4-A267-4755-8AEF-C7420DDE4320}.Release|Any CPU.Build.0 = Release|Any CPU
+		{64C0AC7F-6DFB-4309-BE7E-6317316EF495}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{64C0AC7F-6DFB-4309-BE7E-6317316EF495}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{64C0AC7F-6DFB-4309-BE7E-6317316EF495}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{64C0AC7F-6DFB-4309-BE7E-6317316EF495}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{BF066D2A-CCE3-4FC5-B3F6-33DBD62A4729} = {DEE6A48B-D143-4E6F-B63C-0784BB5E120A}
+		{A6321DF4-A267-4755-8AEF-C7420DDE4320} = {DEE6A48B-D143-4E6F-B63C-0784BB5E120A}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {8B7B841C-15FE-4099-983B-71EFD3488437}
+	EndGlobalSection
+EndGlobal
