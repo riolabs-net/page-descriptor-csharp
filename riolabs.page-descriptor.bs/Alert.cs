@@ -1,4 +1,5 @@
 ﻿using Riolabs.PageDescriptor.Data.Common;
+using Riolabs.PageDescriptor.Data.Components;
 
 namespace Riolabs.PageDescriptor.Bootstrap;
 

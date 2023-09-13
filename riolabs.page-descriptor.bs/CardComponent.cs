@@ -1,4 +1,5 @@
 ﻿using Riolabs.PageDescriptor.Data.Common;
+using Riolabs.PageDescriptor.Data.Components;
 using System;
 using System.Collections.Generic;
 using System.Linq;
