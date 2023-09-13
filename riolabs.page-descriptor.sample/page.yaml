@@ -1,0 +1,34 @@
+id: page-id
+component: page-name-component
+routes:
+  - route
+  - route/:id
+title: Page Title
+subTitle: Page Subtitle
+description: Page Description
+meta:
+  - name: meta-name
+    content: meta-content
+  - name: meta-name-2
+    content: meta-content-2
+  - http-equiv: http-equiv-name
+    content: http-equiv-content
+apis:
+  cars:
+    action: car-api
+    url: /api/cars
+    method: GET
+components:
+  - id: component-id
+    component: rlb-card-component
+    apis:
+      data1:
+        action: data1-api
+        url: /api/data1
+        method: GET
+    data:
+      title: ${current.routeData.title}
+      text: ${current.routeData.subTitle}
+      image: https://via.placeholder.com/150
+
+    

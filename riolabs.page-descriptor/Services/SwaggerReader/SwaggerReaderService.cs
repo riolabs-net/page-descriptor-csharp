@@ -1,38 +1,36 @@
-﻿using Microsoft.OpenApi.Any;
-using Microsoft.OpenApi.Interfaces;
-using Microsoft.OpenApi.Models;
+﻿using Microsoft.OpenApi.Models;
 using Microsoft.OpenApi.Readers;
-using System;
-using System.Collections.Generic;
-using System.Linq;
+using Riolabs.PageDescriptor.Core;
 using System.Text;
-using System.Threading.Tasks;
 
-namespace Riolabs.PageDescriptor.SwaggerParser;
-public class SwaggerReader
+namespace Riolabs.PageDescriptor.Services.SwaggerReader;
+
+public class SwaggerReaderService : ISwaggerReader
 {
-    private readonly OpenApiDocument _openApiDocument;
+    private readonly Dictionary<string, OpenApiDocument> _openApiDocuments;
 
-    public List<SchemaDefinition> Schemas { get; private set; }
-    public List<MethodDefinition> Methods { get; private set; }
-
-    public SwaggerReader(string swagger)
+    public OpenApiDocument GetOrLoadDocument(string fname)
     {
-        string swaggerJson = string.Empty;
-        using (var streamReader = new StreamReader(swagger, Encoding.UTF8))
+        if (_openApiDocuments.TryGetValue(fname, out var document))
         {
-            swaggerJson = streamReader.ReadToEnd();
+            return document;
         }
-
-        var document = new OpenApiStringReader().Read(swaggerJson, out _);
-        _openApiDocument = document;
-        Schemas = GetSchemas();
-        Methods = GetPaths();
+        else
+        {
+            string swaggerJson = string.Empty;
+            using (var streamReader = new StreamReader(fname, Encoding.UTF8))
+            {
+                swaggerJson = streamReader.ReadToEnd();
+            }
+            var _doc = new OpenApiStringReader().Read(swaggerJson, out _);
+            _openApiDocuments.Add(fname, _doc);
+            return _doc;
+        }
     }
 
-    public List<MethodDefinition> GetPaths()
+    public List<MethodDefinition> GetPaths(string fname)
     {
-        var paths = _openApiDocument.Paths
+        var paths = GetOrLoadDocument(fname).Paths
             .SelectMany(o => o.Value.Operations, (i, v) => new MethodDefinition
             {
                 Path = i.Key,
@@ -58,12 +56,12 @@ public class SwaggerReader
                         if (r.Value.Content.FirstOrDefault().Value.Schema.Type == "array")
                         {
                             ret.SchemaId = r.Value.Content.FirstOrDefault().Value.Schema.Items.Reference.Id;
-                            ret.Schema = Schemas.FirstOrDefault(s => s.SchemaId == ret.SchemaId);
+                            ret.Schema = GetSchemas(fname).FirstOrDefault(s => s.SchemaId == ret.SchemaId);
                         }
                         else
                         {
                             ret.SchemaId = r.Value.Content.FirstOrDefault().Value.Schema.Reference.Id;
-                            ret.Schema = Schemas.FirstOrDefault(s => s.SchemaId == ret.SchemaId);
+                            ret.Schema = GetSchemas(fname).FirstOrDefault(s => s.SchemaId == ret.SchemaId);
                         }
                     }
                     return ret;
@@ -72,10 +70,10 @@ public class SwaggerReader
         return paths.ToList();
     }
 
-    public List<SchemaDefinition> GetSchemas()
+    public List<SchemaDefinition> GetSchemas(string fname)
     {
         var i = new List<SchemaDefinition>();
-        foreach (var schema in _openApiDocument.Components.Schemas)
+        foreach (var schema in GetOrLoadDocument(fname).Components.Schemas)
         {
             var _schema = new SchemaDefinition
             {

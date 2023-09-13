@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Riolabs.PageDescriptor.SwaggerParser;
+namespace Riolabs.PageDescriptor.Services.SwaggerReader;
 public class ResponseDefinition
 {
     public int Status { get; set; }

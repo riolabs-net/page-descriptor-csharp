@@ -9,10 +9,14 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\riolabs.page-descriptor.bs\riolabs.page-descriptor.bs.csproj" />
     <ProjectReference Include="..\riolabs.page-descriptor\riolabs.page-descriptor.csproj" />
   </ItemGroup>
 
   <ItemGroup>
+    <None Update="page.yaml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
     <None Update="swagger.json">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>

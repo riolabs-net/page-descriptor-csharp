@@ -4,9 +4,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Riolabs.PageDescriptor;
-
-public abstract class Component
+namespace Riolabs.PageDescriptor.Core;
+public interface IVirtualUi
 {
-    public List<Component> Components { get; set; }
+    Task LoadPageAsync(string fname);
 }

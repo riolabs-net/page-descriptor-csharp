@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Riolabs.PageDescriptor.SwaggerParser;
+namespace Riolabs.PageDescriptor.Services.SwaggerReader;
 public class SchemaDefinition
 {
     public string Type { get; set; }

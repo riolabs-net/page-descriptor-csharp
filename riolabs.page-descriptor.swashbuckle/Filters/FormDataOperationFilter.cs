@@ -2,7 +2,6 @@
 using Microsoft.OpenApi.Extensions;
 using Microsoft.OpenApi.Models;
 using Riolabs.PageDescriptor.Swashbuckle.Attributes;
-using Riolabs.PageDescriptor.Swashbuckle.Attributes.Forms;
 using Swashbuckle.AspNetCore.SwaggerGen;
 using System;
 using System.Collections.Generic;
@@ -29,10 +28,6 @@ public class FormDataOperationFilter : ISchemaFilter
             foreach (FormInfoAttribute attribute in classAttributes)
             {
                 schema.AddExtension($"x-{_swaggerOptions.AttributePrefix}{attribute.Key}", attribute.Value);
-            }
-            if (classAttributes.Where(o => o is CustomFieldAttribute).Any())
-            {
-                schema.AdditionalPropertiesAllowed = true;
             }
         }
     }

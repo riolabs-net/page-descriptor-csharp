@@ -21,4 +21,8 @@
 		<Nullable>disable</Nullable>
 	</PropertyGroup>
 
+	<ItemGroup>
+	  <ProjectReference Include="..\riolabs.page-descriptor\riolabs.page-descriptor.csproj" />
+	</ItemGroup>
+
 </Project>
