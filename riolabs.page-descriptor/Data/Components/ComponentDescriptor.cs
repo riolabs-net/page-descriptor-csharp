@@ -1,11 +1,12 @@
-﻿using System;
+﻿using Riolabs.PageDescriptor.Data.Common;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using YamlDotNet.Serialization;
 
-namespace Riolabs.PageDescriptor.Data.Common;
+namespace Riolabs.PageDescriptor.Data.Components;
 
 public abstract class ComponentDescriptor : ComponentDescriptorBase
 {

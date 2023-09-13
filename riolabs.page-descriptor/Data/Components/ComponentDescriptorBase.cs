@@ -1,6 +1,7 @@
-﻿using YamlDotNet.Serialization;
+﻿using Riolabs.PageDescriptor.Data.Common;
+using YamlDotNet.Serialization;
 
-namespace Riolabs.PageDescriptor.Data.Common;
+namespace Riolabs.PageDescriptor.Data.Components;
 public abstract class ComponentDescriptorBase
 {
     [YamlMember(Alias = "id")]

@@ -1,5 +1,6 @@
 ﻿using Riolabs.PageDescriptor.Data;
 using Riolabs.PageDescriptor.Data.Common;
+using Riolabs.PageDescriptor.Data.Components;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -27,14 +28,5 @@ public class ComponentService
             return _components[componentNameId];
         }
         throw new Exception($"Component {componentNameId} not found");
-    }
-
-    public ComponentTypeInfo GetInfo(Type type)
-    {
-        return new ComponentTypeInfo {
-            HasFormInfo = typeof(FormDescriptor).IsAssignableFrom(type),
-            IsForm = type.GetCustomAttributes<FromAttribute>().Any(),
-            IsComponent = typeof(ComponentDescriptor).IsAssignableFrom(type),
-        };
     }
 }

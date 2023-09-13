@@ -1,5 +1,5 @@
 ﻿using Riolabs.PageDescriptor.Data;
-using Riolabs.PageDescriptor.Data.Common;
+using Riolabs.PageDescriptor.Data.Components;
 using YamlDotNet.Core;
 using YamlDotNet.Core.Events;
 using YamlDotNet.RepresentationModel;

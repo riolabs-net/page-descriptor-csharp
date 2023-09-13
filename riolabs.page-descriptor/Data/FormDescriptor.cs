@@ -5,8 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Riolabs.PageDescriptor.Data.Page;
-public class TextData : ComponentDescriptorBase
+namespace Riolabs.PageDescriptor.Data;
+public class FormDescriptor : ComponentDescriptorBase
 {
-    public string Text { get; set; }
 }

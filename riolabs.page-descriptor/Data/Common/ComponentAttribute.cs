@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Riolabs.PageDescriptor.Data.Common;
 
-[AttributeUsage(AttributeTargets.Class)]
+[AttributeUsage(AttributeTargets.Class, AllowMultiple = true, Inherited = false)]
 public class ComponentAttribute : Attribute
 {
     public string Name { get; set; }
